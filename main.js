@@ -156,7 +156,7 @@ scope() */
 // Falsy(거짓 같은 값)
 // false, '', null, undefined, 0, -0, NaN
 
-  const a = 1
+  /* const a = 1
   const b = '1'
 
   console.log(a == b) // == 동등 연산자를 사용시 형 변환이 일어남
@@ -164,4 +164,125 @@ scope() */
 
   if("false") {
     console.log(123)
-  }
+  } */
+
+//-------------------------------------------------------------
+
+//함수 복습
+
+/* function sum(x, y) {
+  // console.log(x + y)
+  return x + y
+  
+}
+  const a = sum(1, 3)
+  const b = sum(4, 12)
+  console.log(sum(1, 3))
+  console.log(b)
+  console.log(a + b)  */
+  
+
+//-------------------------------------------------------------
+
+// 화살표 함수
+// () => {} vs function () {}
+
+/* const double = function (x) {
+  return x * 2
+}
+console.log('double: ', double(7))
+
+const doubleArrow = x => x * 2 // 매개변수가 1개 일때는 () 괄호 생략 가능
+console.log('doubleArrow: ', doubleArrow(7))
+
+const doubleArrowed = x => ({ name: 'heropy' }) // 화살표 함수에서 객체데이터 입력시
+console.log('doubleArrowed: ', doubleArrowed(7)) */
+
+//-------------------------------------------------------------
+
+//즉시실행함수
+// IIFE, Immediately-Invoked Function Expression
+
+/* const a = 7
+function double() {
+  console.log(a * 2)
+}
+  double();
+
+(function () {  // 즉시실행함수 사용시에는 ()를 앞뒤로 붙인뒤에 ()를 뒤에 한번더 붙여 사용
+  console.log(a * 2)
+})();
+
+(function () {  // 즉시실행함수 사용시에는 ()를 앞뒤로 붙인뒤에 ()를 안에 한번더 붙여 사용(사용 권장!!)
+  console.log(a * 2)
+}())*/
+
+//-------------------------------------------------------------
+
+// 호이스팅(Hoisting)
+// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+
+// 기본 로직
+/* const a = 7
+
+const double = function () {
+  console.log(a * 3)
+}
+  double() */
+
+// 호이스팅
+/* const b = 5
+
+  doubled()
+
+function doubled() {
+  console.log(b * 3)
+} */
+
+//-------------------------------------------------------------
+
+// 타이머 함수
+
+// setTimeout(함수, 시간): 일정 시간 후 함수 실행
+// setInterval(함수, 시간): 시간 간격마다 함수 실행
+// clearTimeout(): 설정된 Timeout 함수를 종료
+// clearInterval(): 설정된 Interval 함수를 종료
+
+
+/* const timer = setTimeout(() => {
+  console.log('heropy!')
+}, 3000)
+
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+  clearTimeout(timer)
+}) */
+
+/* const timer = setInterval(() => {
+  console.log('heropy!!')
+}, 2000)
+
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+  clearInterval(timer)
+}) */
+
+//-------------------------------------------------------------
+
+// 콜백 함수
+// 함수의 인수로 사용되는 함수
+
+// setTimeout(함수, 시간)
+
+function timeout(cb) {
+  setTimeout(() => {
+    console.log('Heropy!')
+    cb()
+  }, 2000)
+}
+
+timeout(() => {
+  console.log('Done!')
+})
+
+
