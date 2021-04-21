@@ -274,7 +274,7 @@ h1El.addEventListener('click', () => {
 
 // setTimeout(함수, 시간)
 
-function timeout(cb) {
+/* function timeout(cb) {
   setTimeout(() => {
     console.log('Heropy!')
     cb()
@@ -284,5 +284,163 @@ function timeout(cb) {
 timeout(() => {
   console.log('Done!')
 })
+*/
+
+//-------------------------------------------------------------
+
+// 생성자 함수
+// 속성과 메소드를 통틀어서 "멤버" 라고 부른다
+/* const heropy = {
+  firstName: 'Heropy',
+  lastName: 'Park',
+  getFullName: function() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+console.log(heropy.getFullName())
+
+const amy = {
+  firstName: 'Amy',
+  lastName: 'Clarke',
+  getFullName: function () {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+console.log(amy.getFullName()) */
+
+//-------------------------------------------
+
+/* function User(first, last) { //생성자 함수를 사용할 경우 함수 이름에 camelcase 기법이 아닌 Pascalcase 기법으로 표기함. (앞에 대문자를 사용)
+  this.firstName = first
+  this.lastName = last
+}
+User.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`
+}
+const heropy = new User('Heropy', 'Park')
+const amy = new User('Amy', 'Clarke')
+const neo = new User('Neo', 'Smith')
+
+console.log(heropy.getFullName())
+console.log(amy)
+console.log(neo) */
+
+//-------------------------------------------------------------
+
+//THIS
+//일반(Normal) 함수는 호출 위치에 따라 this 정의!
+//화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의!
+
+/* const heropy = {
+  name: 'Heropy',
+  normal: function() { // 축약형 normal() {}
+    console.log(this.name)
+  },
+  arrow: () => {
+    console.log(this.name)
+  }
+}
+heropy.normal()
+heropy.arrow()
+
+const amy = {
+  name: 'Amy',
+  normal: heropy.normal,
+  arrow: heropy.arrow
+}
+
+amy.normal()
+amy.arrow() */
 
 
+/* function User(name) {
+  this.name = name
+}
+User.prototype.normal = function () {
+  console.log(this.name)
+}
+User.prototype.arrow = () => {
+  console.log(this.name)
+}
+
+const heropy = new User('Heropy')
+
+heropy.normal()
+heropy.arrow() */
+
+
+// 화살표 함수 - 함수 범위내에 있어야함
+/* const timer = {
+  name: 'Heropy!!',
+  timeout: function() {
+    setTimeout(() => {
+      console.log(this.name)
+    }, 2000)
+  }
+}
+timer.timeout() */
+
+//-------------------------------------------------------------
+
+//ES6 Classes
+
+/* function User(first, last) { 
+  this.firstName = first
+  this.lastName = last
+}
+User.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`
+} */
+
+/*  class User {
+  constructor(first, last) {
+    this.firstName = first
+    this.lastName = last
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+const heropy = new User('Heropy', 'Park')
+const amy = new User('Amy', 'Clarke')
+const neo = new User('Neo', 'Smith')
+
+console.log(heropy.getFullName())
+console.log(amy.getFullName())
+console.log(neo)  */
+
+//-------------------------------------------------------------
+
+//상속(확장)
+
+class Vehicle {
+  constructor(name, wheel) {
+    this.name = name
+    this.wheel = wheel
+  }
+}
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
+
+class Bicycle extends Vehicle {
+  constructor(name, wheel) {
+    super(name, wheel)
+  }
+}
+const myBicycle = new Bicycle('삼천리', 2)
+const daughtersBicycle = new Bicycle('세발', 3)
+
+console.log(myBicycle)
+console.log(daughtersBicycle)
+
+class Car extends Vehicle {
+  constructor(name, wheel, license) {
+    super(name, wheel)
+    this.license = license
+  }
+}
+const myCar = new Car('벤츠', 4, true)
+const daughtersCar = new Car('포르쉐', 4, false)
+
+console.log(myCar)
+console.log(daughtersCar)
