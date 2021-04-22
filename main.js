@@ -356,7 +356,7 @@ amy.arrow() */
 /* function User(name) {
   this.name = name
 }
-User.prototype.normal = function () {
+User.prototype.normal = function () { //prototype은 객체를 상속 시키기위함 prototype으로 만들어진 메소드는 메모리에 한번만 만들어짐 / new를 통해 언제든지 사용가능
   console.log(this.name)
 }
 User.prototype.arrow = () => {
@@ -413,7 +413,7 @@ console.log(neo)  */
 
 //상속(확장)
 
-class Vehicle {
+/* class Vehicle {
   constructor(name, wheel) {
     this.name = name
     this.wheel = wheel
@@ -443,4 +443,347 @@ const myCar = new Car('벤츠', 4, true)
 const daughtersCar = new Car('포르쉐', 4, false)
 
 console.log(myCar)
-console.log(daughtersCar)
+console.log(daughtersCar) */
+
+//-------------------------------------------------------------
+
+//JS 데이터
+
+//문자
+// string.prototype.indexof()
+// 'hello world!'.indexOf() //"" '' literal 방식
+
+// const result = 'hello world!'.indexOf('world')
+// console.log(result)
+
+/*const str = '0123'
+
+console.log(str.length)
+console.log('0123 '.length)
+
+const strs = 'Hello world!'
+const stra = 'wnsqja8888@naver.com'
+const strb = '   Hello world  '
+
+
+console.log(strs.indexOf('HEROPY') !== -1)
+console.log(strs.slice(6, 11))
+console.log(strs.replace('world', 'HEROPY'))
+console.log(strs.replace('Hello', 'HEROPY'))
+console.log(strs.replace('Hello', ''))
+console.log(stra.match(/.+(?=@)/)[0]) // 정규 표현식
+console.log(strb.trim()) */
+
+//-------------------------------------------------------------
+
+// 숫자와 수학
+
+/* const pi = 3.14159265358979
+console.log(pi)
+
+const str = pi.toFixed(2) 
+console.log(str)
+console.log(typeof str) // 문자데이터
+
+const integer = parseInt(str) // 정수 숫자데이터로 변환
+const float = parseFloat(str) // 실수 (소수점) 숫자데이터로 변환
+console.log(integer)
+console.log(float)
+console.log(typeof integer, typeof float) */
+
+/*const a = -1
+const b = -10
+
+const sum = () => {
+  return a + b
+}
+console.log(parseInt(sum() + b / 2)) */
+
+//-------------------------------------------------------------
+
+// Math 함수
+
+/* console.log('abs: ', Math.abs(-12))
+console.log('min: ', Math.min(2, 8))
+console.log('max: ', Math.max(2, 8))
+console.log('ceil: ', Math.ceil(3.14)) // 올림
+console.log('floor: ', Math.floor(3.14)) // 내림
+console.log('round: ', Math.round(3.14)) // 반올림
+console.log('random: ', Math.random()) // 난수
+
+
+const c = -14
+console.log(Math.abs(c)) */
+
+//-------------------------------------------------------------
+
+// ----배열----
+
+/* const numbers = [1, 2, 3, 4] // 배열 내부에 있는 데이터들을 element(요소) or Item 이라고 한다.
+const fruits = ['Apple', 'Banana', 'Cherry'] // 배열 내부에 있는 순서의 숫자는 index라 칭함.
+
+console.log(numbers[0])
+console.log(fruits) */
+
+//-------------------------------------------------------------
+
+// .length (배열의 길이)
+
+/*const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+console.log(numbers.length)
+console.log(fruits.length) 
+console.log([1, 2].length) 
+
+console.log([].length)*/
+
+//-------------------------------------------------------------
+
+// .concat() (두개의 배열을 병합해서 새로운 배열을 만듬)
+
+/*const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+console.log(numbers.concat(fruits))
+
+fruits.forEach(function (element, index, array) { // element => item or 이해 가능범위의 이름을 사용 할 것 / index => i / array는 잘 안씀
+  console.log(element, index, array)
+}) */
+
+//-------------------------------------------------------------
+
+// .map()
+
+/* const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+// const a = fruits.forEach(function (fruit, i) {
+  const a = fruits.forEach((fruit, i) => {
+  console.log(`${fruit}-${i}`)
+})
+// console.log(a)
+
+// const b = fruits.map(function (fruit, i) { //map 메소드는 콜백함수에서 반환된 특정 데이터에 대해 반환을 해주며 새로운 배열을 만든다.
+    const b = fruits.map((fruit, i) => ({
+    id: i,
+    name: fruit
+  }))
+  // return `${fruit}-${i}`
+  console.log(b) */
+
+//-------------------------------------------------------------
+
+  // .filter()
+
+  /* const numbers = [1, 2, 3, 4]
+  const fruits = ['Apple', 'Banana', 'Cherry']
+
+  const a = numbers.map(number => { return number < 3 })
+  console.log(a)
+
+  const b = numbers.filter(number => number < 3)
+  console.log(b) */
+
+//-------------------------------------------------------------
+
+  // .find() .findIndex()
+
+  /* const numbers = [1, 2, 3, 4]
+  const fruits = ['Apple', 'Banana', 'Cherry']
+
+  const a = fruits.find(fruit => /^B/.test(fruit)) // 정규 표현식 
+  console.log(a)
+
+  const b = fruits.findIndex(fruit => /^C/.test(fruit)) // index의 번호를 출력
+  console.log(b) */
+
+//-------------------------------------------------------------
+
+  // .includes() - 포함되어있는지 확인해주는 메소드
+
+  /*const numbers = [1, 2, 3, 4]
+  const fruits = ['Apple', 'Banana', 'Cherry']
+
+  const a = numbers.includes(3)
+  console.log(a)
+
+  const b = fruits.includes('HEROPY')
+  console.log(b)*/
+
+//-------------------------------------------------------------
+
+// .push() .unshift()
+// 원본 수정됨 주의!!!
+
+  /* const numbers = [1, 2, 3, 4]
+  const fruits = ['Apple', 'Banana', 'Cherry']
+
+  numbers.push(5) // 맨 뒤에 데이터를 추가
+  console.log(numbers)
+
+  numbers.unshift(0) // 맨 앞에 데이터를 추가
+  console.log(numbers)
+
+// .reverse() - 순서를 반대로 바꿈
+// 원본 수정됨 주의!!!
+
+  numbers.reverse() 
+  fruits.reverse()
+
+  console.log(numbers)
+  console.log(fruits)
+  
+// .splice() - n번째에 데이터를 삭제 또는 추가
+// 원본 수정됨 주의!!!
+
+  numbers.splice(2, 3, 99) // 첫번째값: 인덱스 번호 / 두번째값: 몇개를 지울지 정함 / 세번째값: 데이터를 추가(1번 2번 인수값의 위치를 참조)
+  fruits.splice(2, 0, 'orange')
+  
+  console.log(numbers)
+  console.log(fruits) */
+
+//-------------------------------------------------------------
+
+// Object
+
+// .assign()
+
+/*const userAge = {
+  // key: value
+  name: 'Heropy', //property
+  age: 85
+}
+const userEmail = {
+  name: 'Heropy',
+  email: 'wnsqja8888@naver.com'
+}
+
+const target = Object.assign({}, userAge, userEmail) // userEmail의 내용을 userAge에 복사해서 집어 넣음
+console.log(target)
+console.log(userAge)
+console.log(target === userAge)
+
+const a = { k: 123 }
+const b = { k: 123 }
+console.log( a === b)*/
+
+//-------------------------------------------------------------
+
+// .keys()
+
+/* const user = {
+  name: 'Heropy',
+  age: 85,
+  email: 'wnsqja8888@naver.com'
+}
+
+const keys = Object.keys(user)
+console.log(keys)
+// ['name', 'age', 'email']
+
+console.log(user['email']) //객체 데이터 인덱싱 방법
+
+const values = keys.map(key => user[key])
+console.log(values) */
+
+//-------------------------------------------------------------
+
+// 구조 분해 할당(Destructuring Assignment)
+// 비구조화 할당
+
+//객체 데이터
+/*const user = {
+  name: 'Heropy',
+  age: 85,
+  email: 'wnsqja8888@naver.com',
+  address: 'USA'
+}
+const { name: heropy, age, email: ea, address = 'Korea' } = user // address = 'Korea' - 기본값 지정 가능
+// E.g, user.address
+
+console.log(`사용자의 이름은 ${heropy}입니다.`)
+console.log(`${name}의 나이는 ${age}세 입니다.`)
+console.log(`${name}의 이메일 주소는 ${ea}입니다.`)
+console.log(address)
+
+// 배열 데이터
+const fruits = ['Apple', 'Banana', 'Cherry'] // 배열은 순서대로 추출함
+// const [a, b, c, d] = fruits
+const [, , c] = fruits
+console.log(c)*/
+
+//-------------------------------------------------------------
+
+// 전개 연산자 (Spread)
+
+/* const fruits = ['Apple', 'Banana', 'Cherry', 'Orange']
+console.log(fruits)
+console.log(...fruits) // 전개연산자 기호 - 배열데이터를 아래와 같이 쉼표로 구분된 아이템으로 출력함 ===> console.log('Apple', 'Banana', 'Cherry')
+
+// function toObject(a, b, ...c) {                    // ...c rest parameter(나머지 매개변수)
+//   return { a: a, b: b, c: c } === {a, b, c}
+// }
+
+const toObject = (a, b, ...c) => ({a, b, c})          // 객체 데이터 사용시 중괄는 화살표 함수 내에 범위를 나타내는 용도로 쓰이므로 소괄호()를 열어서 안에 작성 할 것  
+
+console.log(toObject(...fruits))
+// console.log(toObject(fruits[0], fruits[1], fruits[2]), fruits[3]) */
+
+//-------------------------------------------------------------
+
+//데이터 불변성(Immutability)
+//원시 데이터: String, Number, Boolean, undefined, null
+//참조형 데이터: Object, Array, Function
+//-------------------------------------------------------------
+// |1:             |2:              |3:             |4:
+//-------------------------------------------------------------
+
+//원시 데이터의 예
+/*let a = 1
+let b = 4
+console.log(a, b, a === b)
+b = a
+console.log(a, b, a === b)
+a = 7
+console.log(a, b, a === b)
+let c = 1
+console.log(b, c, b === c)*/
+
+//참조형 데이터의 예-1
+/* let a = { k:1 }
+let b = { k:1 }
+console.log(a, b, a === b)
+a.k = 7
+b = a // 복사 개념이 아닌 같은 메모리 공간을 바라보게 바꿔줌
+console.log(a, b, a === b)
+a.k = 2 //a의 k 속성값을 변경시 b도 자동으로 바뀜 / 이 부분을 개별로 만들어주기위해 얕은 복사와 깊은 복사를 해야함.
+console.log(a, b, a === b)
+let c = b
+console.log(a, b, c, a === c)
+a.k = 9
+console.log(a, b, c, a === c) */
+
+// 얕은 복사(Shallow copy), 깊은 복사(Deep copy)
+
+import _ from 'lodash'
+
+const user = {
+  name: 'Heropy',
+  age: 85,
+  emails: ['wnsqja8888@naver.com']
+}
+const copyUser = _.cloneDeep(user) //깊은복사  //{...user} //Object.assign({}, user) - user 얕은 복사
+console.log(copyUser === user)
+
+user.age = 22
+console.log('user', user)
+console.log('copyUser', copyUser)
+
+console.log('------')
+console.log('------')
+
+user.emails.push('wnsqja8888@naver.com')
+console.log(user.emails === copyUser.emails)
+console.log('user', user)
+console.log('copyUser', copyUser)
