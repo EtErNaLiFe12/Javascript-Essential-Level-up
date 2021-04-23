@@ -764,9 +764,11 @@ console.log(a, b, c, a === c)
 a.k = 9
 console.log(a, b, c, a === c) */
 
+//-------------------------------------------------------------
+
 // 얕은 복사(Shallow copy), 깊은 복사(Deep copy)
 
-import _ from 'lodash'
+/*import _ from 'lodash'
 
 const user = {
   name: 'Heropy',
@@ -786,4 +788,171 @@ console.log('------')
 user.emails.push('wnsqja8888@naver.com')
 console.log(user.emails === copyUser.emails)
 console.log('user', user)
-console.log('copyUser', copyUser)
+console.log('copyUser', copyUser) */
+
+//-------------------------------------------------------------
+
+// 가져오기 / 내보내기
+
+/* import _ from 'lodash' // From `node_modules`!
+import checkType from './getType' // getType.js // 앞에 부분은 이름이 바꿀 수 있음
+// import { gotit, user as jb} from './getRandom' // getRandom.js // default가 아닌 이름을 지정시 { }를 붙여 줘야한다.
+// 이름 바꿀시엔 as 를 사용
+import * as R from './getRandom' // 한번에 모든걸 끄낼시엔 * 와일드 카드를 사용
+
+
+console.log(_.camelCase('the hello world'))
+console.log(checkType([1, 2, 3]))
+// console.log(gotit(), gotit()) 
+// console.log(jb)
+console.log(R) */
+
+//-------------------------------------------------------------
+
+// lodash 사용법
+
+/* import _ from 'lodash'
+
+const usersA = [
+  { 
+    userId: '1', 
+    name: 'HEROPY'
+  },
+  { 
+    userId: '2', 
+    name: 'Neo'
+  }
+]
+const usersB = [
+  { 
+    userId: '1',
+    name: 'HEROPY'
+  },
+  {
+    userId: '3',
+    name: 'Amy'
+  }
+]
+
+const usersC = usersA.concat(usersB)
+console.log('concat', usersC)
+console.log('uniqBy', _.uniqBy(usersC, 'userId')) // 중복된 데이터, 중복을 구분할 고유한 속성 (데이터가 1개일때 사용)
+
+const usersD = _.unionBy(usersA, usersB, 'userId') // 데이터가 여러개 일때 
+console.log('unionBy', usersD) */
+
+//--------------------------------------
+
+/* import _ from 'lodash'
+
+const users = [
+  { userId: '1', name: 'HEROPY'},
+  { userId: '2', name: 'Neo'},
+  { userId: '3', name: 'Amy'},
+  { userId: '4', name: 'Evan'},
+  { userId: '5', name: 'Lewis'}
+]
+
+const foundUser = _.find(users, { name: 'Amy'})
+const foundUserIndex = _.findIndex(users, { name: 'Amy'})
+console.log(foundUser)
+console.log(foundUserIndex)
+
+_.remove(users, { name: 'HEROPY'})
+console.log(users) */
+
+//-------------------------------------------------------------
+
+//JSON (JavaScropt Object Notation) 문자 데이터
+//자바스크립트의 객체 표기법
+
+/* import myDdata from './myData.json'
+
+console.log(myDdata)
+
+const user = {
+  name: 'HEROPY',
+  age: 85,
+  emails: [
+    'thesecon@gmail.com',
+    'neo@zillinks.com'
+  ]
+}
+console.log('user', user)
+
+const str = JSON.stringify(user) //문자데이터 화
+console.log('str', str)
+console.log(typeof str)
+
+const obj = JSON.parse(str) // parse를 통해 js에서 사용가능하게끔 바꿔줌
+console.log('obj', obj) */
+
+//-------------------------------------------------------------
+
+//STORAGE
+
+/* const user = {
+  name: 'heropy',
+  age: 60,
+  emails: [
+    'thesecon@gmail.com',
+    'neo@zillinks.com'
+  ]
+}
+
+// localStorage.setItem('user', JSON.stringify(user)) //localstorage에 저장 할시에는 setItem을 사용하고 JSON.stringify를 통해 문자데이터로 만들어준다.
+// console.log(JSON.parse(localStorage.getItem('user')))
+// localStorage.removeItem('user')
+const str = localStorage.getItem('user')
+const obj = JSON.parse(str)
+obj.age = 22
+console.log(obj)
+localStorage.setItem('user', JSON.stringify(obj)) */
+
+//-------------------------------------------------------------
+
+//OMDb API
+//query string - 주소?속성=값&속성=값&속성=값
+/*
+import axios from 'axios'
+
+function fetchMovies() {
+  axios
+  .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen') //데이터 요청시에 https를 붙일것
+  .then(res => {
+    console.log(res)
+    const h1El = document.querySelector('h1')
+    const imgEl = document.querySelector('img')
+    h1El.textContent = res.data.Search[0].Title
+    imgEl.src = res.data.Search[0].Poster
+  })
+}
+fetchMovies()
+*/
+
+// 정규 표현식
+
+let str = `
+010-1234-5678
+thesecon@gmail.com
+https://www.omdbapi.com/?apikey=7035c60c&s=frozen
+The quick brown fox jumps over the lazy dog.
+abbcccdddd.
+`
+// regexp는 인스턴스 g(global) = 전체 (플래그) i = 대문자 소문자 구분 안함 (플래그)
+// const regexp = new RegExp('the','gi')
+// console.log(str.match(regexp))
+
+// const regexp = /the/gi
+// console.log(str.match(regexp))
+
+//const regexp = /fox/gi
+//console.log(regexp.test(str))
+//console.log(str.replace(regexp, 'AAA'))
+//str = str.replace(regexp, 'AAA') // 재할당
+//console.log(str)
+
+//const regexp = /the/gi
+console.log(str.match(/\.$/gim)) // . 마침표 하나는 특정 문자를 검색하는 패턴이므로 \ 백슬래쉬 기호를 사용하여 특수기호를 문자로 해석될수있게 한다.
+//$앞에 있는 하나의 단어로 끝나는 부분을 찾아서 일치시켜줌
+
