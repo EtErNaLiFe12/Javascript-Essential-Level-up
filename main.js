@@ -937,8 +937,10 @@ let str = `
 thesecon@gmail.com
 https://www.omdbapi.com/?apikey=7035c60c&s=frozen
 The quick brown fox jumps over the lazy dog.
-abbcccdddd.
-`
+abbcccdddd
+http://localhost:1234
+동해물과_백두산이 마르고 닳도록
+` // 기본 - `시작 지점에서 ` 끝지점으로 해석함
 // regexp는 인스턴스 g(global) = 전체 (플래그) i = 대문자 소문자 구분 안함 (플래그)
 // const regexp = new RegExp('the','gi')
 // console.log(str.match(regexp))
@@ -953,6 +955,35 @@ abbcccdddd.
 //console.log(str)
 
 //const regexp = /the/gi
-console.log(str.match(/\.$/gim)) // . 마침표 하나는 특정 문자를 검색하는 패턴이므로 \ 백슬래쉬 기호를 사용하여 특수기호를 문자로 해석될수있게 한다.
-//$앞에 있는 하나의 단어로 끝나는 부분을 찾아서 일치시켜줌
+// console.log(str.match(/\.$/gim)) // . 마침표 하나는 특정 문자를 검색하는 패턴이므로 \ 백슬래쉬 기호를 사용하여 특수기호를 문자로 해석될수있게 한다.
+// $앞에 있는 하나의 단어로 끝나는 부분을 찾아서 일치시켜줌
+
+
+console.log(
+  // str.match(/d$/gm),
+  // str.match(/^t/gim),
+  // str.match(/h..p/g),
+  // str.match(/fox|dog/g),
+  // str.match(/dog|fox/g),
+  // str.match(/https?/g),
+  // str.match(/\w{2,3}/g),
+  // str.match(/\b\w{2,3}\b/g), // \b는 경계를 만들어줌
+  // str.match(/[가-힣]{1,}/g),
+  // str.match(/[0-9]{1,}/g) 
+  // str.match(/\w/g),
+  // str.match(/\bf\w{1,}\b/g),
+  // str.match(/\d{1,}/g),
+  str.match(/.{1,}(?=@)/g),
+  str.match(/(?<=@).{1,}/g)
+)
+
+const h = `  the hello  world    !
+
+`
+
+console.log(
+  h.replace(/\s/g, '')
+  )
+
+
 
