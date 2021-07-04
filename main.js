@@ -1,6 +1,6 @@
 // 1. 데이터 타입 확인
 
-    /* import getType from './getType'
+    /* import getType from './getType' // import를 통해서 가져오기
 
     console.log(typeof 'hello world!')
     console.log(typeof 123)
@@ -796,16 +796,20 @@ console.log('copyUser', copyUser) */
 
 /* import _ from 'lodash' // From `node_modules`!
 import checkType from './getType' // getType.js // 앞에 부분은 이름이 바꿀 수 있음
-// import { gotit, user as jb} from './getRandom' // getRandom.js // default가 아닌 이름을 지정시 { }를 붙여 줘야한다.
+// import { gotit, user as jb} from './getRandom' // getRandom.js // default 경로가 아닐시엔 { }를 붙여 줘야한다.
 // 이름 바꿀시엔 as 를 사용
 import * as R from './getRandom' // 한번에 모든걸 끄낼시엔 * 와일드 카드를 사용
 
+export default function() {} // 이름이 필요없음
+export function random() {} // default 통로로 내보내기가 아니므로 이름을 지정해줘야한다.
+import { random, user } from './getRandom';
 
 console.log(_.camelCase('the hello world'))
 console.log(checkType([1, 2, 3]))
-// console.log(gotit(), gotit()) 
-// console.log(jb)
-console.log(R) */
+console.log(gotit(), gotit()) 
+console.log(jb)
+console.log(R) 
+*/
 
 //-------------------------------------------------------------
 
